@@ -13,7 +13,7 @@ import Focus from './src/features/Focus';
 export default function App() {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar style="auto" />
+            <StatusBar barStyle={'light-content'} />
             <Focus />
         </SafeAreaView>
     );
