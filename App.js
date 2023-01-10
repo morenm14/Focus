@@ -12,7 +12,7 @@ import Focus from './src/features/Focus';
 import { Timer } from './src/features/Timer';
 
 export default function App() {
-    const [subject, setSubject] = useState('Test');
+    const [subject, setSubject] = useState(null);
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle={'light-content'} />
@@ -22,7 +22,7 @@ export default function App() {
                 <Timer
                     focusSubject={subject}
                     onTimerEnd={() => {}}
-                    clearSubject={() => {}}
+                    clearSubject={() => setSubject(null)}
                 />
             )}
         </SafeAreaView>
