@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     StyleSheet,
     Text,
@@ -10,18 +10,24 @@ import {
 import { colors } from './src/utils/colors';
 import Focus from './src/features/Focus';
 import { Timer } from './src/features/Timer';
+import FocusHistory from './src/features/FocusHistory';
 
 export default function App() {
     const [subject, setSubject] = useState(null);
+    const [history, setHistory] = useState([]);
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle={'light-content'} />
             {!subject ? (
-                <Focus addSubject={setSubject} />
+                <>
+                    <Focus addSubject={setSubject} />
+                    <FocusHistory history={history} />
+                </>
             ) : (
                 <Timer
                     focusSubject={subject}
-                    onTimerEnd={() => {}}
+                    onTimerEnd={(subject) => setHistory([subject, ...history])}
                     clearSubject={() => setSubject(null)}
                 />
             )}

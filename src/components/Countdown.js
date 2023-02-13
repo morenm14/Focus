@@ -31,6 +31,7 @@ export const Countdown = ({ minutes, isPaused, onProgress, onEnd }) => {
 
     useEffect(() => {
         setMillis(minutesToMillis(minutes));
+        console.log('millies', millis);
     }, [minutes]);
 
     useEffect(() => {
